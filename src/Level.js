@@ -6,7 +6,7 @@ import CharDropdown from "./CharDropdown";
 const Level = (props) => {
   const { imgUrl, handleClick,
           lastClick, characters,
-          verifyResults, setGameOver } = props;
+          verifyResults, startGame } = props;
   const [choices, setChoices] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ const Level = (props) => {
           handleClick(e);
           setChoices(!choices);
         }}
-        onLoad={() => setGameOver(false)} // when the picture loads, triggers timer
+        onLoad={startGame} // when the picture loads, triggers timer
         alt="Photo to search"
       />
       {choices && 

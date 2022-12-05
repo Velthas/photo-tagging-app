@@ -1,7 +1,7 @@
 import levelOne from '../assets/images/level1.jpg';
-import waldo from '../assets/images/level-1/waldo.png'
-import glados from '../assets/images/level-1/glados.png'
-import irongiant from '../assets/images/level-1/irongiant.png'
+import waldo from '../assets/images/level-1/waldo.png';
+import glados from '../assets/images/level-1/glados.png';
+import irongiant from '../assets/images/level-1/irongiant.png';
 
 const levelImages = [levelOne];
 const levelChar = [

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { profanity } from "@2toad/profanity";
 import formatTime from "./utils/time";
 
-const ScoreboardEntry = ({time}) => {
+const ScoreboardEntry = ({time, startGame}) => {
   const [name, setName] = useState('');
 
   const handleChange = (e) => setName(e.target.value);
@@ -22,7 +22,7 @@ const ScoreboardEntry = ({time}) => {
       <input type="text" onChange={handleChange}></input>
       <div>
       <button onClick={validateName}>Submit</button>
-      <button>Retry</button>
+      <button onClick={startGame}>Retry</button>
       <button>Level Selection</button>
       </div>
     </RecordEntry>
