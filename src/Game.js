@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Level from './Level';
 import Timer from "./Timer";
+import ScoreboardEntry from "./ScoreboardEntry";
 import { levelImages, levelChar } from "./utils/levelData";
 
 const Game = () => {
-  const [ level, setLevel ] = useState(1);
-  const [ lastClick, setLastClick ] = useState('');
-  const [ time, setTime ] = useState('0');
+  const [ level, setLevel ] = useState(1); // is used to change props dinamically
+  const [ lastClick, setLastClick ] = useState(''); // stores x and y of img click
+  const [ time, setTime ] = useState('0'); // is updated when game ends
   const [ gameOver, setGameOver ] = useState('false');
-  useEffect(() => {
-    setGameOver(false)
-  }, [])
 
   const isGameOver = () => {
     const allFound = levelChar[level - 1]
@@ -34,9 +32,11 @@ const Game = () => {
 
   return (
     <div>
+      { gameOver &&
+        <ScoreboardEntry time={time} />}
       <Timer
         gameOver={gameOver}
-        setRecord={setTime} 
+        handleTimerStop={setTime} 
       />      
       <Level
         lastClick={lastClick}
@@ -44,6 +44,7 @@ const Game = () => {
         imgUrl={levelImages[level - 1]}
         characters={levelChar[level - 1]}
         verifyResults={verifyResults}
+        setGameOver={setGameOver}
       />
     </div>
   )

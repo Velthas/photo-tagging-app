@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import CharDropdown from "./CharDropdown";
 
 const Level = (props) => {
-  const {imgUrl, handleClick, lastClick, characters, verifyResults } = props;
+  const { imgUrl, handleClick,
+          lastClick, characters,
+          verifyResults, setGameOver } = props;
   const [choices, setChoices] = useState(false);
 
   return (
@@ -14,7 +16,8 @@ const Level = (props) => {
         onClick={ (e) => {
           handleClick(e);
           setChoices(!choices);
-        }} 
+        }}
+        onLoad={() => setGameOver(false)} // when the picture loads, triggers timer
         alt="Photo to search"
       />
       {choices && 
