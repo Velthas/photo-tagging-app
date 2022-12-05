@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Level from './Level';
 import Timer from "./Timer";
 import ScoreboardEntry from "./ScoreboardEntry";
+import CharacterInfo from "./CharacterInfo";
 import { levelImages, levelChar } from "./utils/levelData";
 
 const Game = () => {
@@ -26,8 +28,9 @@ const Game = () => {
   const verifyResults = (character) =>  {
     if (lastClick.x >= character.x.min && lastClick.x <= character.x.max
      && lastClick.y >= character.y.min && lastClick.y <= character.y.max) {
-        character.found = true;
-        isGameOver();
+      character.found = true;
+      setCharacters(characters.concat([])) // triggers a re-render
+      isGameOver();
     };
   };
 
@@ -44,10 +47,15 @@ const Game = () => {
           startGame={startGame}
         /> 
       }
-      <Timer
-        gameOver={gameOver}
-        handleTimerStop={setTime} 
-      />      
+      <GameInfoContainer>
+        <Timer
+          gameOver={gameOver}
+          handleTimerStop={setTime} 
+        />
+        <CharacterInfo
+          characters={characters}
+        />
+      </GameInfoContainer>
       <Level
         lastClick={lastClick}
         handleClick={getClickLocation}
@@ -58,6 +66,19 @@ const Game = () => {
       />
     </div>
   )
-}
+};
+
+const GameInfoContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #fff;
+
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+`
 
 export default Game;

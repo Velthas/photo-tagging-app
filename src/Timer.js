@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import formatTime from "./utils/time";
 
 const Timer = ({gameOver, handleTimerStop}) => {
@@ -18,10 +19,14 @@ const Timer = ({gameOver, handleTimerStop}) => {
 }, [gameOver]);
 
   return (
-    <div>
+    <TimerWrapper>
       { formatTime(time) }
-    </div>
+    </TimerWrapper>
   )
 }
+
+const TimerWrapper = styled.div`
+  font-size: 1.6rem;
+`
 
 export default Timer;
