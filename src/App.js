@@ -1,8 +1,17 @@
-import Game from './Game';
+import Header from './pages/Header';
+import Footer from './pages/Footer';
+import Main from './pages/Main';
+import { useState } from 'react';
+
 
 function App() {
+  const [level, setLevel] = useState(0)
   return (
-    <Game></Game>
+    <>
+      <Header />
+      <Main level={level} setLevel={setLevel}/>
+      <Footer />
+    </>
   );
 }
 

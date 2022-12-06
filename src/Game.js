@@ -4,10 +4,9 @@ import Level from './Level';
 import Timer from "./Timer";
 import ScoreboardEntry from "./ScoreboardEntry";
 import CharacterInfo from "./CharacterInfo";
-import { levelImages, levelChar } from "./utils/levelData";
+import levelData from "./utils/levelData";
 
-const Game = () => {
-  const [ level, setLevel ] = useState(1); // is used to change props dinamically
+const Game = ({level}) => {
   const [ characters, setCharacters ] = useState([]);
   const [ lastClick, setLastClick ] = useState(''); // stores x and y of last img click
   const [ time, setTime ] = useState('0'); // is updated when game ends
@@ -15,7 +14,7 @@ const Game = () => {
 
   const isGameOver = () => {
     const allFound = characters
-      .filter((char) => char.found).length === levelChar[level - 1].length;
+      .filter((char) => char.found).length === levelData.getLevelCharacters(level).length;
     if(allFound) setGameOver(true);
   }
 
@@ -35,7 +34,7 @@ const Game = () => {
   };
 
   const startGame = () => {
-    setCharacters(levelChar[level - 1].map(char => {return {...char}})); // deep copy char objs;
+    setCharacters(levelData.getLevelCharacters(level)); // deep copy char objs;
     setGameOver(false); // (re)starts the game;
   };
 
@@ -59,7 +58,7 @@ const Game = () => {
       <Level
         lastClick={lastClick}
         handleClick={getClickLocation}
-        imgUrl={levelImages[level - 1]}
+        imgUrl={levelData.getLevelPicture(level)}
         characters={characters}
         verifyResults={verifyResults}
         startGame={startGame}
