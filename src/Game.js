@@ -74,11 +74,17 @@ const GameInfoContainer = styled.div`
   align-items: center;
 
   background-color: #fff;
+  padding: 10px;
 
   height: 10vh;
   position: sticky;
   top: 0;
   z-index: 1;
+
+  @media(max-width: 700px) {
+    height: 15vh;
+    flex-direction: column;
+  }
 `
 
 export default Game;

@@ -1,4 +1,5 @@
-import uniqid from 'uniqid'
+import uniqid from 'uniqid';
+import styled from 'styled-components';
 import LevelInfo from "./LevelInfo";
 import levelData  from "./utils/levelData";
 
@@ -11,7 +12,7 @@ const Home = ({setLevel}) => {
     </div>
     <div>
       <h1>Level Selection</h1>
-      <div>
+      <LevelWrapper>
       { levelData.getAll().map((level, index) => {
         return (
           <LevelInfo 
@@ -25,10 +26,18 @@ const Home = ({setLevel}) => {
         )}
       )
       } 
-      </div>
+      </LevelWrapper>
     </div>
   </div>
   )
-}
+};
+
+const LevelWrapper = styled.div`
+display: flex;
+flex-wrap: wrap;
+
+background-color: white;
+padding: 20px;
+`;
 
 export default Home;

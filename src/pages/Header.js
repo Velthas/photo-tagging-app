@@ -31,10 +31,14 @@ const Header = () => {
 
 const Logo = styled.h1`
   font-weight: normal;
-  font-family: 'vogue', sans-serif;
-  font-size: 3rem; 
+  font-family: ${({theme}) => theme.fonts.headers};
+  font-size: 2rem; 
   margin-top: 10px;
   letter-spacing: 5px;
+
+  @media(max-width: 700px) {
+    margin-bottom: 0;
+  }
 `;
 
 const Navbar = styled.nav`
@@ -44,7 +48,7 @@ const Navbar = styled.nav`
   position: relative;
   height: 10vh;
   @media(max-width: 700px) {
-    height: 20vh;
+    height: 15vh;
     flex-direction: column;
   }
 `;
