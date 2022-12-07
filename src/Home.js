@@ -20,6 +20,7 @@ const Home = ({setLevel}) => {
             levelImg={level.getImg(index)}
             name={level.getName(index)}
             description={level.getDescr(index)}
+            level={index}
           />
         )}
       )

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { profanity } from "@2toad/profanity";
 import formatTime from "./utils/time";
 
@@ -23,7 +24,7 @@ const ScoreboardEntry = ({time, startGame}) => {
       <div>
       <button onClick={validateName}>Submit</button>
       <button onClick={startGame}>Retry</button>
-      <button>Level Selection</button>
+      <Link to="/"><button>Level Selection</button></Link>
       </div>
     </RecordEntry>
   )

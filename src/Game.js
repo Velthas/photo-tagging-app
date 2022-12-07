@@ -21,6 +21,7 @@ const Game = ({level}) => {
   const getClickLocation = (e) => {
     const percentX = (e.nativeEvent.offsetX / e.target.offsetWidth) * 100;
     const percentY = (e.nativeEvent.offsetY / e.target.offsetHeight) * 100;
+    console.log({percentX, percentY});
     setLastClick({ x: percentX, y: percentY });
   };
 

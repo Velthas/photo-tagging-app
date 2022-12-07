@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const LevelInfo = ({levelImg, name, description, setLevel}) => {
+const LevelInfo = ({levelImg, name, description, setLevel, level}) => {
   return (
     <InfoWrapper>
       <LevelImg src={levelImg} />
       <div>
         <h2>{name}</h2>
         <p>{description}</p>
-        <Link to="/game"><button onClick={() => setLevel(0)}>Play!</button></Link>
+        <Link to="/game"><button onClick={() => setLevel(level)}>Play!</button></Link>
       </div>
     </InfoWrapper>
   )
