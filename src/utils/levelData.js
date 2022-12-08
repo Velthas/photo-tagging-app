@@ -40,9 +40,9 @@ const levelData = (() => {
   const firstLevelName = "Universe 113";
   const firstLevelDescr = "When you got your ticket for Universe 113 you thought you had finally put your life on the right path. Shame those travel officers did not care enough to mention the horrors that inhabit its depths, right? Ah, no worries, did you have better plans anyway?";
   const firstLevelChars = [
-    {name: 'Iron Giant', picture: irongiant, x: {min: 31.1, max: 35.23}, y: { min: 40.20, max: 41.70 }, found: false},
-    {name: 'Waldo', picture: waldo, x: {min: 6.70, max: 9.30 }, y: { min: 57.58, max: 59.23 }, found: false},
-    {name: 'GLaDOS', picture: glados, x: {min: 77.31, max: 84.31 }, y: { min: 63.81, max: 67.00 }, found: false},
+    {name: 'Iron Giant', picture: irongiant, found: false},
+    {name: 'Waldo', picture: waldo, found: false},
+    {name: 'GLaDOS', picture: glados, found: false},
   ];
   const firstLevel = Level(firstLevelName, firstLevelDescr, firstLevelChars, firstLevelImg);
 
@@ -50,9 +50,9 @@ const levelData = (() => {
   const secondLevelName = "The Loc Nar";
   const secondLevelDescr = "Welcome to Loc Nar, an extraordinary cyberpunk city bustling with life, and of course, violence. Like for any city worth its salt, it's amazing verticality reflects the heights one can soar to, or crash down from. For you, what will it be?";
   const secondLevelChars = [
-    {name: 'Edward', picture: edward, x: {min: 57.60, max: 61.40}, y: { min: 90.90, max: 91.70 }, found: false},
-    {name: 'Ryuk', picture: ryuk, x: {min: 15, max: 20 }, y: { min: 45.30, max: 47.30 }, found: false},
-    {name: 'Vash', picture: vash, x: {min: 1, max: 5.2 }, y: { min: 93.40, max: 95.30 }, found: false},
+    {name: 'Edward', picture: edward, found: false},
+    {name: 'Ryuk', picture: ryuk, found: false},
+    {name: 'Vash', picture: vash, found: false},
 ];
 const secondLevel = Level(secondLevelName, secondLevelDescr, secondLevelChars, secondLevelImg);
 
@@ -60,9 +60,9 @@ const secondLevel = Level(secondLevelName, secondLevelDescr, secondLevelChars, s
   const thirdLevelName = "Robocity";
   const thirdLevelDescr = "After years of exploitation and abuse, it comes as no surprise that the machine would create a safe haven to protect their own. Depending on how desentisized you are, you might find 'safe' is a bit of a stretch for this metal maze, but you'll want to leave feelings at the door for this one. ";
   const thirdLevelChars = [
-    {name: 'Denji', picture: denji, x: {min: 65.60, max: 69.15}, y: { min: 62, max: 66.70 }, found: false},
-    {name: 'Lady D', picture: ladyd, x: {min: 68.50, max: 74 }, y: { min: 32.15, max: 37.26 }, found: false},
-    {name: 'Biomachine', picture: biomachine, x: {min: 13.00, max: 15.20 }, y: { min: 59, max: 61.40 }, found: false},
+    {name: 'Denji', picture: denji, found: false},
+    {name: 'Lady D', picture: ladyd, found: false},
+    {name: 'Biomachine', picture: biomachine, found: false},
   ];
   const thirdLevel = Level(thirdLevelName, thirdLevelDescr, thirdLevelChars, thirdLevelImg);
 
@@ -70,13 +70,13 @@ const secondLevel = Level(secondLevelName, secondLevelDescr, secondLevelChars, s
   const fourthLevelName = "Space Battle";
   const fourthLevelDescr = "This is it. You can't believe you avoided eating the last cheeto off the XL bag you bought yesterday. To think you had even almost seriously thought about getting a gym membership! Oh well, might as well roll with the lasers.";
   const fourthLevelChars = [
-    {name: 'Master Chief', picture: chief, x: {min: 5.70, max: 8.90}, y: { min: 54.53, max: 58.13 }, found: false},
-    {name: 'Claptrap', picture: claptrap, x: {min: 24, max: 28.30 }, y: { min: 76.27, max: 79.30 }, found: false},
-    {name: 'Cuphead', picture: cuphead, x: {min: 50.67, max: 53.51 }, y: { min: 55.64, max: 57.76 }, found: false},
+    {name: 'Master Chief', picture: chief, found: false},
+    {name: 'Claptrap', picture: claptrap, found: false},
+    {name: 'Cuphead', picture: cuphead, found: false},
   ];
   const fourthLevel = Level(fourthLevelName, fourthLevelDescr, fourthLevelChars, fourthLevelImg);
 
-  const levels = [firstLevel, secondLevel, thirdLevel, fourthLevel]
+  const levels = [firstLevel, secondLevel, thirdLevel, fourthLevel];
 
   const getLevelName = (level) => levels[level].getName();
   const getLevelDescr = (level) => levels[level].getDescr();

@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import Level from './Level';
 import Timer from "./Timer";
 import ScoreboardEntry from "./ScoreboardEntry";
 import CharacterInfo from "./CharacterInfo";
 import levelData from "./utils/levelData";
+import Firestore from "./firebase/firestore";
 
 const Game = ({level}) => {
   const [ characters, setCharacters ] = useState([]);
   const [ lastClick, setLastClick ] = useState(''); // stores x and y of last img click
   const [ time, setTime ] = useState('0'); // is updated when game ends
   const [ gameOver, setGameOver ] = useState(false);
+  const navigate = useNavigate();
 
   const isGameOver = () => {
     const allFound = characters
@@ -19,15 +22,16 @@ const Game = ({level}) => {
   }
 
   const getClickLocation = (e) => {
+    Firestore.getScoreboard(level);
     const percentX = (e.nativeEvent.offsetX / e.target.offsetWidth) * 100;
     const percentY = (e.nativeEvent.offsetY / e.target.offsetHeight) * 100;
-    console.log({percentX, percentY});
     setLastClick({ x: percentX, y: percentY });
   };
 
-  const verifyResults = (character) =>  {
-    if (lastClick.x >= character.x.min && lastClick.x <= character.x.max
-     && lastClick.y >= character.y.min && lastClick.y <= character.y.max) {
+  const verifyResults = async (character) =>  {
+    const coords = await Firestore.getCoords(character.name, level); // check coords range database
+    if (lastClick.x >= coords.x.min && lastClick.x <= coords.x.max
+     && lastClick.y >= coords.y.min && lastClick.y <= coords.y.max) {
       character.found = true;
       setCharacters(characters.concat([])) // triggers a re-render
       isGameOver();
@@ -39,12 +43,18 @@ const Game = ({level}) => {
     setGameOver(false); // (re)starts the game;
   };
 
+  const storeRecord = (data) => {
+    Firestore.addScore(level, data);
+    navigate('/leaderboard');
+  };
+
   return (
     <div>
       { gameOver &&
         <ScoreboardEntry 
           time={time}
           startGame={startGame}
+          storeRecord={storeRecord}
         /> 
       }
       <GameInfoContainer>

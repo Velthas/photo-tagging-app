@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { profanity } from "@2toad/profanity";
 import formatTime from "./utils/time";
 
-const ScoreboardEntry = ({time, startGame}) => {
+const ScoreboardEntry = ({time, startGame, storeRecord}) => {
   const [name, setName] = useState('');
 
   const handleChange = (e) => setName(e.target.value);
@@ -15,6 +15,12 @@ const ScoreboardEntry = ({time, startGame}) => {
     if (profanity.exists(name)) setName(profanity.censor(name));
   };
 
+  const addScore = () => {
+    if(validateName().length > 0) return
+    const entry = {time, name};
+    storeRecord(entry);
+  }
+
   return (
     <RecordEntry>
       <h1>You did it! Your time was:</h1>
@@ -22,7 +28,7 @@ const ScoreboardEntry = ({time, startGame}) => {
       <p> What name should we sing of when your legendary tale is told? </p>
       <input type="text" onChange={handleChange}></input>
       <div>
-      <button onClick={validateName}>Submit</button>
+      <button onClick={() => addScore()}>Submit</button>
       <button onClick={startGame}>Retry</button>
       <Link to="/"><button>Level Selection</button></Link>
       </div>
