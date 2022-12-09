@@ -29,11 +29,10 @@ const Container = styled.div`
   left: ${({click}) => click.x + '%'};
   top: ${({click}) => click.y + '%'};
 
-  border: 1px solid #dfdfdf;
   border-radius: 3px;
 
-  color: gray;
-  background-color: #fff;
+  color: ${({theme}) => theme.colors.yellow};
+  background-color: ${({theme}) => theme.colors.dark};
   opacity: 0.7;
 `;
 

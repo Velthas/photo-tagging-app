@@ -7,6 +7,7 @@ import ScoreboardEntry from "./ScoreboardEntry";
 import CharacterInfo from "./CharacterInfo";
 import levelData from "./utils/levelData";
 import Firestore from "./firebase/firestore";
+import yellowSep from './assets/images/style/top-yellow.svg'
 
 const Game = ({level}) => {
   const [ characters, setCharacters ] = useState([]);
@@ -79,20 +80,23 @@ const Game = ({level}) => {
 };
 
 const GameInfoContainer = styled.div`
+  position: relative;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
 
-  background-color: #fff;
+  background-color: ${({theme}) => theme.colors.dark};
+  color: ${({theme}) => theme.colors.yellow};
   padding: 10px;
 
-  height: 10vh;
+  height: 15vh;
   position: sticky;
   top: 0;
   z-index: 1;
 
   @media(max-width: 700px) {
-    height: 15vh;
+    height: 20vh;
     flex-direction: column;
   }
 `

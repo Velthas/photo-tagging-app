@@ -45,8 +45,8 @@ const CharacterInfoContainer = styled(FlexContainer)`
 `
 
 const CharImg = styled.img`
-  height: 5vh;
-  width: 5vh;
+  height: 7.3vh;
+  width: 7.3vh;
 `;
 
 const CharName = styled.p`

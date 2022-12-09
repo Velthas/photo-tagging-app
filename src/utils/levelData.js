@@ -68,7 +68,7 @@ const secondLevel = Level(secondLevelName, secondLevelDescr, secondLevelChars, s
 
   // Level 4
   const fourthLevelName = "Space Battle";
-  const fourthLevelDescr = "This is it. You can't believe you avoided eating the last cheeto off the XL bag you bought yesterday. To think you had even almost seriously thought about getting a gym membership! Oh well, might as well roll with the lasers.";
+  const fourthLevelDescr = "This is really it. You can't believe you avoided eating the last cheeto off the XL bag you bought yesterday. To think you had even almost seriously thought about getting a gym membership! Oh well, might as well roll with the lasers, unless you plan on becoming space mush, that is.";
   const fourthLevelChars = [
     {name: 'Master Chief', picture: chief, found: false},
     {name: 'Claptrap', picture: claptrap, found: false},
