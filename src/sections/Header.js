@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import blackSep from '../assets/images/style/bottom-black.svg'
+import blackSep from '../assets/images/style/bottom-black.svg';
 
-const Header = () => {
+function Header() {
   return (
     <Navbar>
       <Logo>
@@ -12,22 +12,22 @@ const Header = () => {
       <NavContainer>
         <NavLink>
           <StyledLink to="/">
-            { 'Home' }
+            Home
           </StyledLink>
         </NavLink>
         <NavLink>
           <StyledLink to="/leaderboard">
-            { 'Leaderboards' }
+            Leaderboards
           </StyledLink>
         </NavLink>
       </NavContainer>
     </Navbar>
   );
-};
+}
 
 const Logo = styled.h1`
   font-weight: normal;
-  font-family: ${({theme}) => theme.fonts.headers};
+  font-family: ${({ theme }) => theme.fonts.headers};
   font-size: 2rem; 
   margin: 0 0 10px 0;
   letter-spacing: 5px;
@@ -54,8 +54,8 @@ const Navbar = styled.nav`
   justify-content: space-around;
   align-items: center;
 
-  background-color: ${({theme}) => theme.colors.yellow};
-  color: ${({theme}) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.dark};
 
   height: 15vh;
 
@@ -69,7 +69,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1.3rem;
 
-  color: ${({theme}) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.dark};
 `;
 
 const NavContainer = styled.ul`

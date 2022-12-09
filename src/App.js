@@ -1,15 +1,14 @@
-import Header from './pages/Header';
-import Footer from './pages/Footer';
-import Main from './pages/Main';
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import Header from './sections/Header';
+import Footer from './sections/Footer';
+import Main from './sections/Main';
 
 function App() {
-  const [level, setLevel] = useState(0)
+  const [level, setLevel] = useState(0);
   return (
     <>
       <Header />
-      <Main level={level} setLevel={setLevel}/>
+      <Main level={level} setLevel={setLevel} />
       <Footer />
     </>
   );

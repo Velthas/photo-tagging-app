@@ -1,12 +1,13 @@
-import React, {useState, useEffect} from "react";
-import Firestore from "./firebase/firestore";
-import styled from "styled-components";
-import levelData from "./utils/levelData";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
-import BoardItem from "./ScoreStuff/BoardItem";
-import yellowSep from './assets/images/style/top-yellow.svg'
+import Firestore from '../../firebase/firestore';
+import levelData from '../../utils/levelData';
+import BoardItem from './BoardItem';
+import yellowSep from '../../assets/images/style/top-yellow.svg';
 
-const Scoreboard = ({level}) => {
+function Scoreboard({ level }) {
   const [stage, setStage] = useState(level);
   const [records, setRecords] = useState([]);
   useEffect(() => {
@@ -14,7 +15,7 @@ const Scoreboard = ({level}) => {
       const allScores = await Firestore.getScoreboard(stage);
       const sortedScores = allScores.sort((a, b) => a.time - b.time);
       setRecords(sortedScores);
-    }
+    };
     getScores();
   }, [stage]);
 
@@ -23,32 +24,42 @@ const Scoreboard = ({level}) => {
       <Levels>
         <Heading>Levels</Heading>
         <LevelContainer>
-        { levelData.getAll().map((level, index) => {
-        return <LevelButton key={uniqid()} onClick={() => setStage(index)}>
-          {level.getName()}
-        </LevelButton>}
-          )}
+          {levelData.getAll().map((lvl, index) => (
+            <LevelButton key={uniqid()} onClick={() => setStage(index)}>
+              {lvl.getName()}
+            </LevelButton>
+          ))}
         </LevelContainer>
       </Levels>
       <ScoreCollection>
         <Heading>Scores</Heading>
         <ScoreContainer>
-          { records.map((record, index) => { return <BoardItem rank={index + 1} score={record} key={uniqid()}></BoardItem> }) }
+          {records.map((record, index) => (
+            <BoardItem
+              rank={index + 1}
+              score={record}
+              key={uniqid()}
+            />
+          ))}
         </ScoreContainer>
       </ScoreCollection>
     </div>
-  )
+  );
 }
+
+Scoreboard.propTypes = {
+  level: PropTypes.number.isRequired,
+};
 
 const Heading = styled.h1`
   text-align: center;
   margin: 0 0 20px 0;
-`
+`;
 
 const Levels = styled.div`
   position: relative;
   padding: 20px;
-  background-color:${({theme}) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.dark};
   color: white;
 
   &:after {
@@ -70,7 +81,7 @@ const LevelContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  @media(max-width: 700px) {
+  @media (max-width: 700px) {
     flex-direction: column;
     width: 100%;
   }
@@ -78,10 +89,10 @@ const LevelContainer = styled.div`
 
 const LevelButton = styled.button`
   margin: 12px;
-  width: calc(${(100 / levelData.getAll().length) + '%'} - 24px);
+  width: calc(${`${100 / levelData.getAll().length}%`} - 24px);
   padding: 10px 20px;
-  background-color: ${({theme}) => theme.colors.cyan};
-  color: ${({theme}) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.cyan};
+  color: ${({ theme }) => theme.colors.dark};
   font-size: 1.3rem;
   cursor: pointer;
   transition: 0.15s smooth;
@@ -90,7 +101,7 @@ const LevelButton = styled.button`
     transform: scale(1.05);
   }
 
-  @media(max-width: 700px) {
+  @media (max-width: 700px) {
     width: 80%;
   }
 `;
@@ -102,8 +113,8 @@ const ScoreContainer = styled.div`
 
 const ScoreCollection = styled.div`
   text-align: center;
-  background-color: ${({theme}) => theme.colors.yellow};
-  color: ${({theme}) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.dark};
 `;
 
 export default Scoreboard;
