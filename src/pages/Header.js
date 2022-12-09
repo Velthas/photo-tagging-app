@@ -16,11 +16,6 @@ const Header = () => {
           </StyledLink>
         </NavLink>
         <NavLink>
-          <StyledLink to="/levels">
-            { 'Levels' }
-          </StyledLink>
-        </NavLink>
-        <NavLink>
           <StyledLink to="/leaderboard">
             { 'Leaderboards' }
           </StyledLink>
