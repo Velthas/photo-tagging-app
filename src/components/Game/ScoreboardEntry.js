@@ -9,10 +9,11 @@ function ScoreboardEntry({ time, startGame, storeRecord }) {
   const [name, setName] = useState('');
   useEffect(() => { isNameValid(); }, [name]);
   const [error, setError] = useState('');
+  const regex = new RegExp('^[A-Za-z][A-Za-z0-9_]{2,11}$')
 
   const isNameValid = () => {
-    if (name.length < 3 || name.length > 12) {
-      setError('Name has to be between 3 and 12 characters long');
+    if (!regex.test(name)) {
+      setError('Name has to start with a-z char, only numbers and latin alphabet chars allowed. Min length is 3, max length is 12');
       return false;
     } if (profanity.exists(name)) {
       setError('Name cannot contain profanity');

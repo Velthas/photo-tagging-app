@@ -7,9 +7,11 @@ function Timer({ gameOver, handleTimerStop }) {
   const [time, setTime] = useState(0);
   useEffect(() => {
     let interval;
+    let start;
     if (!gameOver) {
       setTime(0);
-      interval = setInterval(() => setTime((prevTime) => prevTime + 10), 10);
+      start = Date.now();
+      interval = setInterval(() => setTime((Date.now() - start)), 10);
     } else if (gameOver) {
       clearInterval(interval);
       handleTimerStop(time);
@@ -28,6 +30,7 @@ Timer.propTypes = {
 
 const TimerWrapper = styled.div`
   font-size: 1.6rem;
+  width: 100px;
 `;
 
 export default Timer;
