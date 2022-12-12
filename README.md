@@ -1,5 +1,5 @@
 
-# <img src="https://thenounproject.com/api/private/icons/41555/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABjlz7c9lZeuf5JHwrNoTydRXrrvjKrJbAbmgkNzR9vn1B4abu5lzjJxCNO0EhVEzwPgIVRSvry24zXTiRP75zOKCvKJA%3D%3D" height="100px" width="100px"> </img>Tag Em All  <img src="https://thenounproject.com/api/private/icons/41555/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABjlz7c9lZeuf5JHwrNoTydRXrrvjKrJbAbmgkNzR9vn1B4abu5lzjJxCNO0EhVEzwPgIVRSvry24zXTiRP75zOKCvKJA%3D%3D" height="100px" width="100px"> </img>
+# <img src="hhttps://cdn-icons-png.flaticon.com/512/5764/5764648.png" height="100px" width="100px"> </img>Tag Em All  <img src="https://cdn-icons-png.flaticon.com/512/5764/5764648.png" height="100px" width="100px"> </img>
 
 **Live at:** https://tag-em-all.web.app/
 
@@ -41,7 +41,7 @@ Once all characters are found, you will be prompted to input your username to st
  - **Level Posters**: all level posters are drawn from [Egor Klyuchnyk](https://www.artstation.com/chekavo) 
  - **Pixel Art**: from miscellaneous artists, sadly could not keep tab.
  - **Black and Yellow Separators/Button Background**: CD Projekt RED (Cyberpunk 2077 Website)
- - **Waldo Icon**: Stefan Spieler - The Noun Project
+ - **README Icon**: SmashIcon - FlatIcon
 
 ### Sabbo Memorial
 You should know that whenever I am done developing things, I always ask my friends to give the project a whirl and see if they can find any bugs. 
